@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventory Management System</title>
+  <link rel="stylesheet" href="inventory.css">
+</head>
+<body>
+  <div class="container">
+    <div id="admin-panel" class="panel">
+      <h2>Admin Panel</h2>
+      <form id="add-product-form" class="form">
+        <h3>Add New Product</h3>
+        <input type="text" id="product-name" placeholder="Product Name" required>
+        <input type="number" id="product-price" placeholder="Price" required>
+        <input type="number" id="product-stock" placeholder="Stock" required>
+        <input type="text" id="product-variations" placeholder="Variations (Shoe Size)" required>
+        <input type="file" id="product-image" accept="image/*" required>
+        <button type="submit">Add Product</button>
+      </form>
+      <form id="edit-product-form" class="form hidden">
+        <h3>Edit Product</h3>
+        <input type="hidden" id="edit-product-id">
+        <input type="text" id="edit-product-name" placeholder="Product Name" required>
+        <input type="number" id="edit-product-price" placeholder="Price" required>
+        <input type="number" id="edit-product-stock" placeholder="Stock" required>
+        <input type="text" id="edit-product-variations" placeholder="Variations (Shoe Size)" required>
+        <input type="file" id="edit-product-image" accept="image/*">
+        <button type="submit">Save Changes</button>
+      </form>
+      <div id="product-list" class="product-list"></div>
+    </div>
+
+    <div id="client-panel" class="panel">
+      <h2>Client View</h2>
+      <h2>Available Products</h2>
+      <div id="client-product-list" class="product-list"></div>
+      <h2>Shopping Cart</h2>
+      <div id="cart" class="product-list"></div>
+      <button id="checkout-button" class="btn-checkout" onclick="checkout()">Checkout</button>
+    </div>
+  </div>
+
+  <script src="inventory.js"></script>
+</body>
+</html>
