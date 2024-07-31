@@ -1,47 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Barb Shoe Store</title>
-  <link rel="stylesheet" href="inventory.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Management</title>
+    <link rel="stylesheet" href="inventory.css">
 </head>
 <body>
-  <div class="container">
-    <div id="admin-panel" class="panel">
-      <h2>Admin Panel</h2>
-      <form id="add-product-form" class="form">
-        <h3>Add New Product</h3>
-        <input type="text" id="product-name" placeholder="Product Name" required>
-        <input type="number" id="product-price" placeholder="Price" required>
-        <input type="number" id="product-stock" placeholder="Stock" required>
-        <input type="text" id="product-variations" placeholder="Variations (Shoe Size)" required>
-        <input type="file" id="product-image" accept="image/*" required>
-        <button type="submit">Add Product</button>
-      </form>
-      <form id="edit-product-form" class="form hidden">
-        <h3>Edit Product</h3>
-        <input type="hidden" id="edit-product-id">
-        <input type="text" id="edit-product-name" placeholder="Product Name" required>
-        <input type="number" id="edit-product-price" placeholder="Price" required>
-        <input type="number" id="edit-product-stock" placeholder="Stock" required>
-        <input type="text" id="edit-product-variations" placeholder="Variations (Shoe Size)" required>
-        <input type="file" id="edit-product-image" accept="image/*">
-        <button type="submit">Save Changes</button>
-      </form>
-      <div id="product-list" class="product-list"></div>
+
+    <div class="container">
+
+        <div class="admin-section">
+            <h2>Admin Section</h2>
+            <form id="add-product-form" class="form">
+                <input type="text" id="product-name" placeholder="Product Name" required>
+                <input type="number" id="product-price" placeholder="Product Price" required>
+                <input type="number" id="product-stock" placeholder="Product Stock" required>
+                <input type="text" id="product-variations" placeholder="Product Variations (comma separated)">
+                <input type="file" id="product-image" required>
+                <button type="submit" class="btn">Add Product</button>
+            </form>
+            <form id="edit-product-form" class="form hidden">
+                <input type="hidden" id="edit-product-id">
+                <input type="text" id="edit-product-name" placeholder="Product Name" required>
+                <input type="number" id="edit-product-price" placeholder="Product Price" required>
+                <input type="number" id="edit-product-stock" placeholder="Product Stock" required>
+                <input type="text" id="edit-product-variations" placeholder="Product Variations (comma separated)">
+                <input type="file" id="edit-product-image">
+                <button type="submit" class="btn">Save Changes</button>
+            </form>
+            <div id="product-list" class="product-list"></div>
+        </div>
+
+
+
+
+        <div class="client-section">
+            <h2>Client Section</h2>
+            <div id="client-product-list" class="product-list"></div>
+            <h2>Cart</h2>
+            <div id="cart" class="product-list" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <button onclick="initiateCheckout()" class="btn">Checkout</button>
+        </div>
+    </div>
+    <div id="checkout-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Checkout Summary</h2>
+            <div id="checkout-summary" class="summary-list"></div>
+            <div class="summary-total" id="checkout-total"></div>
+            <button onclick="confirmCheckout()" class="btn">Confirm Purchase</button>
+        </div>
     </div>
 
-    <div id="client-panel" class="panel">
-      <h2>Client View</h2>
-      <h2>Available Products</h2>
-      <div id="client-product-list" class="product-list"></div>
-      <h2>Shopping Cart</h2>
-      <div id="cart" class="product-list"></div>
-      <button id="checkout-button" class="btn-checkout" onclick="checkout()">Checkout</button>
-    </div>
-  </div>
+    <div id="notification" class="notification hidden"></div>
 
-  <script src="inventory.js"></script>
+    <script src="inventory.js"></script>
+    
 </body>
 </html>
