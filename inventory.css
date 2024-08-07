@@ -1,3 +1,4 @@
+
 body {
   font-family: Arial, sans-serif;
   background-color: #f0f0f0;
@@ -9,6 +10,7 @@ body {
   display: flex;
   justify-content: space-around;
   margin: 20px;
+  flex-wrap: wrap;
 }
 
 .admin-section, .client-section {
@@ -17,6 +19,7 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
   width: 45%;
+  box-sizing: border-box;
 }
 
 h2 {
@@ -41,6 +44,7 @@ h2 {
   border-radius: 4px;
   padding: 10px;
   width: calc(100% - 22px);
+  box-sizing: border-box;
 }
 
 .size-input {
@@ -132,6 +136,7 @@ h2 {
   position: relative;
   max-height: 80%;
   overflow-y: auto;
+  box-sizing: border-box;
 }
 
 .close {
@@ -184,4 +189,31 @@ h2 {
   font-weight: bold;
   margin-top: 20px;
   text-align: right;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 1024px) {
+  .container {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .admin-section, .client-section {
+      width: 100%;
+      margin-bottom: 20px;
+  }
+
+  .product-item {
+      width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 768px) {
+  .product-item {
+      width: calc(100% - 20px);
+  }
+
+  .modal-content {
+      width: 90%;
+  }
 }
